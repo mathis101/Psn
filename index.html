@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prywatne Szkoły Niepubliczne – Technikum Nowy Sącz | Od 1992 r.</title>
+    <meta name="description" content="Nowoczesne Technikum Niepubliczne w Nowym Sączu. Bezpłatna nauka (Czesne 0 zł), zniżka na prawo jazdy -50%, 7 państwowych kierunków kształcenia.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            accent: '#f59e0b',
+                            gold: '#d97706'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Modern Glassmorphism & Custom styles */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+        }
+        .dark .hero-gradient {
+            background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.25) 0%, transparent 70%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        .dark ::webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased transition-colors duration-300 selection:bg-brand-500 selection:text-white">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-200/60 dark:border-slate-800/60 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo & Brand Name -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <i data-lucide="graduation-cap" class="w-7 h-7"></i>
+                </div>
+                <div>
+                    <div class="font-extrabold text-lg leading-tight tracking-tight text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                        Prywatne Szkoły Niepubliczne
+                    </div>
+                    <div class="text-xs font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
+                        <span>Technikum Nowy Sącz</span>
+                        <span class="w-1 h-1 rounded-full bg-slate-400"></span>
+                        <span class="text-slate-500 dark:text-slate-400">od 1992 r.</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+                <a href="#glowna" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Strona Główna</a>
+                <a href="#kierunki" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Kierunki</a>
+                <a href="#rekrutacja" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Rekrutacja</a>
+                <a href="#aktualnosci" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Aktualności</a>
+                <a href="#o-szkole" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Standardy</a>
+                <a href="#kontakt" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Kontakt</a>
+            </nav>
+
+            <!-- Actions & Theme Toggle -->
+            <div class="hidden sm:flex items-center gap-4">
+                <!-- Dark Mode Toggle Button -->
+                <button id="themeToggleBtn" onclick="toggleDarkMode()" aria-label="Przełącz motyw" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+
+                <!-- e-Dziennik Button -->
+                <button onclick="openModal('modalEdziennik')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white shadow-sm transition-all duration-200">
+                    <i data-lucide="book-open" class="w-4 h-4 text-brand-500"></i>
+                    <span>e-Dziennik</span>
+                </button>
+
+                <!-- Rekrutacja Quick Link -->
+                <a href="#rekrutacja" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-600 text-white hover:bg-brand-700 shadow-md shadow-brand-500/25 transition-all duration-200 hover:-translate-y-0.5">
+                    <span>Zapisz się</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="flex items-center gap-2 sm:hidden">
+                <button id="themeToggleBtnMobile" onclick="toggleDarkMode()" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+                <button onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 focus:outline-none">
+                    <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Nav Menu Drawer -->
+        <div id="mobileMenu" class="hidden sm:hidden border-t border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 bg-white dark:bg-slate-900 space-y-3">
+            <a href="#glowna" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium">Strona Główna</a>
+            <a href="#kierunki" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium">Kierunki Kształcenia</a>
+            <a href="#rekrutacja" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium">Rekrutacja</a>
+            <a href="#aktualnosci" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium">Aktualności</a>
+            <a href="#o-szkole" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium">O Szkole & Standardy</a>
+            <a href="#kontakt" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium">Kontakt</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <button onclick="openModal('modalEdziennik'); toggleMobileMenu()" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-semibold">
+                    <i data-lucide="book-open" class="w-4 h-4 text-brand-500"></i>
+                    <span>e-Dziennik (Logowanie)</span>
+                </button>
+                <a href="#rekrutacja" onclick="toggleMobileMenu()" class="w-full text-center py-3 rounded-xl bg-brand-600 text-white font-semibold">
+                    Zapisz się online
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="glowna">
+
+        <!-- HERO SECTION -->
+        <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden hero-gradient">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto space-y-6">
+                    
+                    <!-- Top Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/60 text-brand-700 dark:text-brand-300 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Rekrutacja 2026/2027 Otwarta
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-slate-900 dark:text-white">
+                        Zmieniamy się według <span class="bg-gradient-to-r from-brand-600 to-indigo-600 bg-clip-text text-transparent">Waszych potrzeb</span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
+                        <strong class="text-slate-800 dark:text-slate-100">Prywatne Szkoły Niepubliczne – Technikum Nowy Sącz</strong>. Funkcjonujemy od 1992 roku, tworząc nowoczesną, przyjazną uczniom szkołę. Chcesz mieć pewną pracę? Zostań elitarnym specjalistą!
+                    </p>
+
+                    <!-- Hero CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                        <a href="#kierunki" class="px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-500/30 transition-all hover:scale-105 flex items-center gap-2">
+                            <span>Zobacz kierunki</span>
+                            <i data-lucide="compass" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#rekrutacja" class="px-7 py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 font-bold text-base shadow-sm transition-all hover:scale-105 flex items-center gap-2">
+                            <span>Zapisz się (Rekrutacja)</span>
+                            <i data-lucide="user-plus" class="w-5 h-5 text-brand-600"></i>
+                        </a>
+                        <button onclick="openModal('modalEdziennik')" class="px-6 py-3.5 rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-semibold text-base hover:opacity-90 transition-all flex items-center gap-2">
+                            <i data-lucide="book-open" class="w-5 h-5 text-brand-500"></i>
+                            <span>e-Dziennik</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- 4 KEY BENEFIT TILES -->
+                <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Tile 1 -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none hover:border-brand-500/50 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="badge-percent" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Czesne 0 zł</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Bezpłatna nauka w technikum! Bez ukrytych opłat za edukację na najwyższym poziomie.</p>
+                    </div>
+
+                    <!-- Tile 2 -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none hover:border-brand-500/50 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="car" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Prawo jazdy -50%</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Wyjątkowa zniżka 50% na kurs prawa jazdy kategorii B dla wszystkich naszych uczniów.</p>
+                    </div>
+
+                    <!-- Tile 3 -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none hover:border-brand-500/50 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Od 1992 roku</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Ponad 30 lat doświadczenia w kształceniu młodzieży na rynku oświatowym w Polsce.</p>
+                    </div>
+
+                    <!-- Tile 4 -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none hover:border-brand-500/50 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">7 kierunków</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Poszukiwane na rynku pracy zawody z państwowym dyplomem technika i maturą.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: KIERUNKI KSZTAŁCENIA (BENTO GRID + FILTRY) -->
+        <section id="kierunki" class="py-20 bg-slate-100/70 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                    <div>
+                        <div class="text-brand-600 dark:text-brand-400 font-bold text-sm tracking-widest uppercase mb-2">Wybierz swoją przyszłość</div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">7 Nowoczesnych Kierunków Kształcenia</h2>
+                        <p class="text-slate-600 dark:text-slate-400 mt-2 max-w-xl">
+                            Zdobądź państwowy dyplom technika oraz zdasz maturę. Przygotujemy Cię do sukcesu zawodowego na rynku pracy.
+                        </p>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap gap-2 p-1.5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm self-start md:self-auto">
+                        <button onclick="filterKierunki('all')" class="filter-btn active px-4 py-2 rounded-lg text-sm font-semibold transition-colors bg-brand-600 text-white" data-category="all">Wszystkie (7)</button>
+                        <button onclick="filterKierunki('it')" class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white" data-category="it">IT & Media</button>
+                        <button onclick="filterKierunki('biznes')" class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white" data-category="biznes">Biznes & Turystyka</button>
+                    </div>
+                </div>
+
+                <!-- BENTO GRID FOR THE 7 COURSES -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="kierunkiGrid">
+                    
+                    <!-- 1. TECHNIK PROGRAMISTA (Large Bento Card) -->
+                    <div class="kierunek-card lg:col-span-2 p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-brand-950 text-white shadow-2xl relative overflow-hidden flex flex-col justify-between group border border-slate-700/50" data-cat="it">
+                        <div class="absolute -right-10 -bottom-10 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <i data-lucide="code-2" class="w-80 h-80 text-brand-400"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="px-3.5 py-1.5 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold uppercase tracking-wider border border-brand-500/30">TOP 1 IT • Rekomendowany</span>
+                                <span class="text-xs font-semibold text-slate-400">5-letnie Technikum</span>
+                            </div>
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center text-brand-400 border border-brand-500/40">
+                                    <i data-lucide="terminal" class="w-8 h-8"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl sm:text-3xl font-bold">Technik Programista</h3>
+                                    <span class="text-brand-400 text-sm font-semibold">Kod zawodu: 351406</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-300 text-base leading-relaxed max-w-2xl">
+                                Dynamiczny rozwój sektora IT oraz rosnące zapotrzebowanie na programistów sprawia, że jest to jeden z najlepiej wynagradzanych zawodów. Rynek pracy wręcz pęka w szwach od ofert IT.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-slate-700/60 flex items-center justify-between">
+                            <div class="text-xs text-slate-400 font-medium">Języki: Python, JavaScript, C#, SQL, HTML/CSS</div>
+                            <button onclick="openCourseModal('programista')" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm transition-all flex items-center gap-2 group-hover:translate-x-1">
+                                <span>Czytaj więcej</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 2. TECHNIK INFORMATYK -->
+                    <div class="kierunek-card p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-cat="it">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                                <i data-lucide="cpu" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">IT & Sieci</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Technik Informatyk</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Najbardziej poszukiwany zawód na rynku pracy. Branża informatyczna to jeden z najszybciej rozwijających się sektorów gospodarczych. Jeśli świat IT to Twoje miejsce na Ziemi, ten kierunek jest dla Ciebie.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-slate-500">Kwalifikacje INF.02, INF.03</span>
+                            <button onclick="openCourseModal('informatyk')" class="p-2 rounded-xl text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950 font-semibold text-sm transition-colors flex items-center gap-1">
+                                <span>Szczegóły</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 3. TECHNIK FOTOGRAFII I MULTIMEDIÓW -->
+                    <div class="kierunek-card p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-cat="it">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                                <i data-lucide="camera" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">Media & Kreacja</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Technik Fotografii i Multimediów</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Zawód niezwykle poszukiwany w dzisiejszych czasach, w którym tylko nieliczni mogą pochwalić się dyplomem państwowym. Dla osób z twórczą wyobraźnią, kreatywnych i pełnych pomysłów.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-slate-500">Fotografia, Grafika & Video</span>
+                            <button onclick="openCourseModal('fotografia')" class="p-2 rounded-xl text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950 font-semibold text-sm transition-colors flex items-center gap-1">
+                                <span>Szczegóły</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 4. TECHNIK REKLAMY -->
+                    <div class="kierunek-card p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-cat="it">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                                <i data-lucide="megaphone" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider">Marketing & PR</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Technik Reklamy</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Zawód dla osób kreatywnych z twórczą wyobraźnią. Jeśli masz dużo pomysłów i pasjonuje Cię świat reklamy, marketingu i mediów – to idealna propozycja dla Ciebie.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-slate-500">Social Media & Branding</span>
+                            <button onclick="openCourseModal('reklama')" class="p-2 rounded-xl text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950 font-semibold text-sm transition-colors flex items-center gap-1">
+                                <span>Szczegóły</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 5. TECHNIK EKONOMISTA -->
+                    <div class="kierunek-card p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-cat="biznes">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Finanse & Biznes</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Technik Ekonomista</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Specjaliści tego kierunku znajdą zatrudnienie niemal w każdej firmie. Dla osób przedsiębiorczych i komunikatywnych, interesujących się sferą społeczną, ekonomiczną i biznesową.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-slate-500">Księgowość & Zarządzanie</span>
+                            <button onclick="openCourseModal('ekonomista')" class="p-2 rounded-xl text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950 font-semibold text-sm transition-colors flex items-center gap-1">
+                                <span>Szczegóły</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 6. TECHNIK HOTELARSTWA -->
+                    <div class="kierunek-card p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" data-cat="biznes">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                                <i data-lucide="building-2" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Usługi & Premium</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Technik Hotelarstwa</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Bardzo poszukiwany zawód w ciągle rozwijającej się branży hotelarskiej. Obejmuje planowanie pracy zespołu oraz wdrażanie rozwiązań technicznych i organizacyjnych. Idealny dla osób otwartych i komunikatywnych.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-slate-500">Obsługa Gościa & Gastronomia</span>
+                            <button onclick="openCourseModal('hotelarstwo')" class="p-2 rounded-xl text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-950 font-semibold text-sm transition-colors flex items-center gap-1">
+                                <span>Szczegóły</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 7. TECHNIK ORGANIZACJI TURYSTYKI -->
+                    <div class="kierunek-card lg:col-span-3 p-8 rounded-3xl bg-gradient-to-r from-teal-900 to-emerald-950 text-white shadow-xl relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6 group border border-teal-800/50" data-cat="biznes">
+                        <div class="max-w-2xl">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-bold uppercase tracking-wider mb-3">
+                                <i data-lucide="globe" class="w-3.5 h-3.5"></i> Turystyka & Eventy
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2">Technik Organizacji Turystyki</h3>
+                            <p class="text-teal-100 text-sm leading-relaxed">
+                                Bardzo poszukiwany zawód w związku z rosnącym zapotrzebowaniem na usługi turystyczne i imprezy masowe. Organizacja i obsługa eventów, imprez turystycznych, kongresów, konferencji i targów. Dla osób lubiących planować podróże i kontakt z klientem.
+                            </p>
+                        </div>
+                        <div class="shrink-0">
+                            <button onclick="openCourseModal('turystyka')" class="px-6 py-3 rounded-xl bg-white text-teal-950 hover:bg-teal-50 font-bold text-sm transition-all shadow-lg flex items-center gap-2">
+                                <span>Poznaj szczegóły kierunku</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: O SZKOLE & STANDARDY -->
+        <section id="o-szkole" class="py-20 bg-white dark:bg-slate-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Left Column: Story -->
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">
+                            Tradcja od 1992 roku
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
+                            Jedna z najdłużej działających szkół prywatnych w Polsce
+                        </h2>
+                        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                            <strong>Prywatne Szkoły Niepubliczne</strong> to jedne z najdłużej działających jednostek na rynku prywatnych usług oświatowych w Polsce. Funkcjonujemy od roku 1992, sukcesywnie zdobywając wiedzę o tym, jak powinna wyglądać nowoczesna, przyjazna uczniom szkoła.
+                        </p>
+                        
+                        <!-- Mini Highlights Grid -->
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                <div class="text-2xl font-extrabold text-brand-600 dark:text-brand-400">100%</div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Uprawnienia Szkoły Państwowej</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                <div class="text-2xl font-extrabold text-brand-600 dark:text-brand-400">30+ lat</div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Doświadczenia edukacyjnego</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Interactive Cards for Standardy & e-Dziennik -->
+                    <div class="space-y-6">
+                        
+                        <!-- Standardy Ochrony Małoletnich Card -->
+                        <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-slate-900 dark:to-indigo-950/40 border border-indigo-200/80 dark:border-indigo-800/50 shadow-md">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0">
+                                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                                </div>
+                                <div class="space-y-2">
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Standardy Ochrony Małoletnich</h3>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        W trosce o bezpieczeństwo naszych uczniów wdrożyliśmy pełne Standardy Ochrony Małoletnich zgodnie z ustawą Kamilki. Zapoznaj się z dokumentacją.
+                                    </p>
+                                    <button onclick="openModal('modalStandardy')" class="inline-flex items-center gap-1.5 text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:underline pt-1">
+                                        <span>Czytaj Standardy Ochrony</span>
+                                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- e-Dziennik System Card -->
+                        <div class="p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-900 dark:to-amber-950/40 border border-amber-200/80 dark:border-amber-800/50 shadow-md">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center shrink-0">
+                                    <i data-lucide="laptop" class="w-6 h-6"></i>
+                                </div>
+                                <div class="space-y-2">
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">System e-Dziennika Ucznia i Rodzica</h3>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        Pełna kontrola frekwencji, ocen oraz bieżącej komunikacji ze szkołą 24/7 poprzez nowoczesny dziennik elektroniczny.
+                                    </p>
+                                    <button onclick="openModal('modalEdziennik')" class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-700 dark:text-amber-400 hover:underline pt-1">
+                                        <span>Zaloguj się do e-Dziennika</span>
+                                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 4: REKRUTACJA (KROKI + FORMULARZ + KALKULATOR PUNKTÓW) -->
+        <section id="rekrutacja" class="py-20 bg-slate-100/80 dark:bg-slate-900/60 border-t border-slate-200/80 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-brand-600 dark:text-brand-400 font-bold text-sm tracking-widest uppercase">Dołącz do nas</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Prosty proces rekrutacji</h2>
+                    <p class="text-slate-600 dark:text-slate-400">Zobacz jak w 4 prostych krokach zostać uczniem Technikum Niepublicznego w Nowym Sączu.</p>
+                </div>
+
+                <!-- 4 Steps Timeline -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+                    
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm relative">
+                        <div class="w-10 h-10 rounded-xl bg-brand-600 text-white font-extrabold flex items-center justify-center mb-4">1</div>
+                        <h4 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Wybierz kierunek</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Zaznacz interesujący Cię zawód spośród 7 dostępnych kierunków technicznych.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm relative">
+                        <div class="w-10 h-10 rounded-xl bg-brand-600 text-white font-extrabold flex items-center justify-center mb-4">2</div>
+                        <h4 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Złóż podanie</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Wypełnij podanie online na tej stronie lub w sekretariacie (ul. Kochanowskiego 3).</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm relative">
+                        <div class="w-10 h-10 rounded-xl bg-brand-600 text-white font-extrabold flex items-center justify-center mb-4">3</div>
+                        <h4 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Dostarcz dokumenty</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Przekaż świadectwo ukończenia szkoły podstawowej oraz wyniki egzaminu ósmoklasisty.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-emerald-600 text-white shadow-lg relative">
+                        <div class="w-10 h-10 rounded-xl bg-white text-emerald-700 font-extrabold flex items-center justify-center mb-4">4</div>
+                        <h4 class="font-bold text-lg mb-1">Witaj w PSN!</h4>
+                        <p class="text-sm text-emerald-100">Odbierz potwirdzenie przyjęcia i ciesz się bezpłatną nauką oraz zniżką -50% na prawo jazdy!</p>
+                    </div>
+
+                </div>
+
+                <!-- GRID: FORMULARZ + KALKULATOR PUNKTÓW -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- FORMULARZ ONLINE (7 cols) -->
+                    <div class="lg:col-span-7 bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+                                <i data-lucide="file-signature" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Formularz Zgłoszeniowy Online</h3>
+                                <p class="text-xs text-slate-500">Wypełnij wstępny kwestionariusz rekrutacyjny</p>
+                            </div>
+                        </div>
+
+                        <form id="rekrutacjaForm" onsubmit="handleRecruitmentSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Wybierz kierunek *</label>
+                                <select id="formKierunek" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                    <option value="" disabled selected>-- Wybierz 1 z 7 kierunków --</option>
+                                    <option value="Technik Programista">Technik Programista</option>
+                                    <option value="Technik Informatyk">Technik Informatyk</option>
+                                    <option value="Technik Fotografii i Multimediów">Technik Fotografii i Multimediów</option>
+                                    <option value="Technik Reklamy">Technik Reklamy</option>
+                                    <option value="Technik Ekonomista">Technik Ekonomista</option>
+                                    <option value="Technik Hotelarstwa">Technik Hotelarstwa</option>
+                                    <option value="Technik Organizacji Turystyki">Technik Organizacji Turystyki</option>
+                                </select>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Imię i Nazwisko Ucznia *</label>
+                                    <input type="text" required placeholder="np. Jan Kowalski" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Numer telefonu *</label>
+                                    <input type="tel" required placeholder="np. 600 000 000" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Adres e-mail *</label>
+                                <input type="email" required placeholder="np. jan.kowalski@gmail.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Dotychczasowa Szkoła Podstawowa (Miejscowość)</label>
+                                <input type="text" placeholder="np. SP nr 1 w Nowym Sączu" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                            </div>
+
+                            <div class="pt-2">
+                                <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-500/30 transition-all flex items-center justify-center gap-2">
+                                    <i data-lucide="send" class="w-5 h-5"></i>
+                                    <span>Wyślij zgłoszenie do rekrutacji</span>
+                                </button>
+                            </div>
+                            <p class="text-xs text-slate-500 text-center">Wysyłając zgłoszenie, wyrażasz zgodę na kontakt sekretariatu szkoły.</p>
+                        </form>
+
+                        <!-- Notification Box (Hidden by default) -->
+                        <div id="formSuccessAlert" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 text-emerald-800 dark:text-emerald-200">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-emerald-600 shrink-0"></i>
+                                <div>
+                                    <h4 class="font-bold">Zgłoszenie zostało wysłane!</h4>
+                                    <p class="text-xs mt-0.5">Dziękujemy. Nasz sekretariat skontaktuje się z Tobą w ciągu 24h roboczych.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KALKULATOR PUNKTÓW REKRUTACYJNYCH (5 cols) -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-950 text-white p-8 rounded-3xl border border-slate-800 shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center border border-brand-500/30">
+                                    <i data-lucide="calculator" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Kalkulator Punktów 8-klasisty</h3>
+                                    <p class="text-xs text-slate-400">Oblicz swoje szanse w rekrutacji</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <p class="text-xs text-slate-300">Wpisz szacowane wyniki z egzaminu (0-100%):</p>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div>
+                                        <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">J. Polski %</label>
+                                        <input type="number" id="calcPol" min="0" max="100" value="70" onchange="calculatePoints()" oninput="calculatePoints()" class="w-full p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-white text-sm font-semibold focus:outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Matematyka %</label>
+                                        <input type="number" id="calcMat" min="0" max="100" value="65" onchange="calculatePoints()" oninput="calculatePoints()" class="w-full p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-white text-sm font-semibold focus:outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">J. Obcy %</label>
+                                        <input type="number" id="calcAng" min="0" max="100" value="80" onchange="calculatePoints()" oninput="calculatePoints()" class="w-full p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-white text-sm font-semibold focus:outline-none">
+                                    </div>
+                                </div>
+
+                                <p class="text-xs text-slate-300 pt-2">Wybierz przewidywane oceny na Świadectwie (6=cel, 2=dop):</p>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">J. Polski (Ocena)</label>
+                                        <select id="gradePol" onchange="calculatePoints()" class="w-full p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-white text-sm font-semibold focus:outline-none">
+                                            <option value="18">6 (Celujący - 18 pkt)</option>
+                                            <option value="17" selected>5 (Bardzo dobry - 17 pkt)</option>
+                                            <option value="14">4 (Dobry - 14 pkt)</option>
+                                            <option value="8">3 (Dostateczny - 8 pkt)</option>
+                                            <option value="2">2 (Dopuszczający - 2 pkt)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Matematyka (Ocena)</label>
+                                        <select id="gradeMat" onchange="calculatePoints()" class="w-full p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-white text-sm font-semibold focus:outline-none">
+                                            <option value="18">6 (Celujący - 18 pkt)</option>
+                                            <option value="17" selected>5 (Bardzo dobry - 17 pkt)</option>
+                                            <option value="14">4 (Dobry - 14 pkt)</option>
+                                            <option value="8">3 (Dostateczny - 8 pkt)</option>
+                                            <option value="2">2 (Dopuszczający - 2 pkt)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Result Display Box -->
+                        <div class="mt-8 p-4 rounded-2xl bg-brand-950/60 border border-brand-500/40 text-center space-y-1">
+                            <span class="text-xs uppercase font-bold tracking-widest text-slate-400">Twój szacowany wynik:</span>
+                            <div class="text-4xl font-extrabold text-brand-400" id="totalPointsDisplay">148.5 pkt</div>
+                            <div class="text-xs text-emerald-400 font-semibold pt-1 flex items-center justify-center gap-1">
+                                <i data-lucide="check" class="w-4 h-4"></i> High Chance: Bardzo wysokie szanse przyjęcia!
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 5: AKTUALNOŚCI I ŻYCIE SZKOŁY + SOCIAL MEDIA (5/5 RATING) -->
+        <section id="aktualnosci" class="py-20 bg-white dark:bg-slate-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-brand-600 dark:text-brand-400 font-bold text-sm tracking-widest uppercase">Życie Szkoły</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Aktualności & Społeczność</h2>
+                    <p class="text-slate-600 dark:text-slate-400">Bądź na bieżąco z wydarzeniami, osiągnięciami i życiem naszej społeczności szkolnej.</p>
+                </div>
+
+                <!-- News Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    
+                    <!-- News Item 1 -->
+                    <div class="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-slate-50 dark:bg-slate-900 flex flex-col justify-between hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
+                                <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 font-bold">REKRUTACJA</span>
+                                <span>Maj 2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Bezpłatna nauka – Czesne 0 zł na cały cykl!</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                Przypominamy, że nauka w naszym technikum jest całkowicie bezpłatna. Oferujemy państwowe uprawnienia bez ukrytych opłat.
+                            </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="#rekrutacja" class="inline-flex items-center gap-1 text-sm font-bold text-brand-600 dark:text-brand-400 hover:underline">
+                                <span>Dowiedz się więcej</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- News Item 2 -->
+                    <div class="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-slate-50 dark:bg-slate-900 flex flex-col justify-between hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
+                                <span class="px-2.5 py-1 rounded-md bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400 font-bold">BONUS DLACZĘSTEK</span>
+                                <span>Kwiecień 2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Kurs prawa jazdy 50% taniej dla uczniów!</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                Wszyscy uczniowie klas technikum mają możliwość odbycia kursu prawa jazdy kategorii B z 50% bonifikatą. Zrób prawo jazdy w trakcie nauki.
+                            </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="#kontakt" class="inline-flex items-center gap-1 text-sm font-bold text-brand-600 dark:text-brand-400 hover:underline">
+                                <span>Zytaj szczegóły</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- News Item 3 -->
+                    <div class="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-slate-50 dark:bg-slate-900 flex flex-col justify-between hover:shadow-lg transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
+                                <span class="px-2.5 py-1 rounded-md bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-400 font-bold">WYDARZENIA</span>
+                                <span>Czerwiec 2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Dni Otwarte i warsztaty programistyczne</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                Zapraszamy ósmoklasistów wraz z rodzicami na zwiedzanie naszych pracowni informatycznych, fotograficznych i multimedialnych.
+                            </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="#kontakt" class="inline-flex items-center gap-1 text-sm font-bold text-brand-600 dark:text-brand-400 hover:underline">
+                                <span>Harmonogram Dni Otwartych</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SOCIAL MEDIA 5/5 RATING CARDS -->
+                <div class="pt-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Zaobserwuj nas w sieci</h3>
+                        <p class="text-slate-500 text-sm mt-1">Ocena naszej społeczności: ★★★★★ 5/5</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- Facebook Card -->
+                        <div class="p-6 rounded-2xl bg-slate-900 text-white border border-slate-800 flex flex-col justify-between shadow-xl">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white">
+                                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                                    </div>
+                                    <div class="flex text-amber-400 text-sm gap-0.5">
+                                        ★ ★ ★ ★ ★ <span class="text-xs font-bold text-white ml-1">5/5</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">Facebook</h4>
+                                <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                    Bądź na bieżąco i obserwuj nas na Facebooku! Dzięki temu nie przegapisz żadnych wydarzeń i komunikatów dotyczących naszej szkoły.
+                                </p>
+                            </div>
+                            <a href="https://www.facebook.com" target="_blank" class="w-full text-center py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-colors flex items-center justify-center gap-2">
+                                <span>Znajdź nas na Facebooku</span>
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+
+                        <!-- Instagram Card -->
+                        <div class="p-6 rounded-2xl bg-slate-900 text-white border border-slate-800 flex flex-col justify-between shadow-xl">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white">
+                                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                                    </div>
+                                    <div class="flex text-amber-400 text-sm gap-0.5">
+                                        ★ ★ ★ ★ ★ <span class="text-xs font-bold text-white ml-1">5/5</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">Instagram</h4>
+                                <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                    Zobacz najciekawsze chwile z życia naszej szkoły. Specjalnie dla Was udostępniamy te momenty na naszym Instagramie.
+                                </p>
+                            </div>
+                            <a href="https://www.instagram.com" target="_blank" class="w-full text-center py-3 rounded-xl bg-gradient-to-r from-rose-600 to-purple-600 hover:opacity-90 text-white font-bold text-sm transition-opacity flex items-center justify-center gap-2">
+                                <span>Obserwuj nas na Instagramie</span>
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+
+                        <!-- YouTube Card -->
+                        <div class="p-6 rounded-2xl bg-slate-900 text-white border border-slate-800 flex flex-col justify-between shadow-xl">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white">
+                                        <i data-lucide="youtube" class="w-6 h-6"></i>
+                                    </div>
+                                    <div class="flex text-amber-400 text-sm gap-0.5">
+                                        ★ ★ ★ ★ ★ <span class="text-xs font-bold text-white ml-1">5/5</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">YouTube</h4>
+                                <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                    Najważniejsze wydarzenia organizowane przez naszą szkołę w formie materiałów filmowych do obejrzenia w wygodny sposób na YouTube.
+                                </p>
+                            </div>
+                            <a href="https://www.youtube.com" target="_blank" class="w-full text-center py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm transition-colors flex items-center justify-center gap-2">
+                                <span>Zobacz nas na YouTube</span>
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 6: KONTAKT I STOPKA -->
+        <section id="kontakt" class="py-20 bg-slate-100/80 dark:bg-slate-900/80 border-t border-slate-200 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Contact Info Column (5 cols) -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div>
+                            <span class="text-brand-600 dark:text-brand-400 font-bold text-sm tracking-widest uppercase">Skontaktuj się z nami</span>
+                            <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Sekretariat Szkoły</h2>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">Zapraszamy od poniedziałku do piątku w godzinach 8:00 – 16:00.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Address Card -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold uppercase text-slate-400">Adres Szkoły</div>
+                                    <div class="text-base font-bold text-slate-900 dark:text-white">ul. Kochanowskiego 3</div>
+                                    <div class="text-sm text-slate-600 dark:text-slate-400">33-300 Nowy Sącz</div>
+                                    <a href="https://maps.google.com/?q=ul.+Kochanowskiego+3,+33-300+Nowy+S%C4%85cz" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline mt-2">
+                                        <span>Otwórz w Google Maps</span>
+                                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Phone Card -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold uppercase text-slate-400">Telefon sekretariatu</div>
+                                    <a href="tel:+48184443704" class="text-lg font-bold text-slate-900 dark:text-white hover:text-brand-600 transition-colors">
+                                        018 444 37 04
+                                    </a>
+                                    <div class="text-xs text-slate-500">Zadzwoń bezpośrednio z telefonu</div>
+                                </div>
+                            </div>
+
+                            <!-- Email Card -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold uppercase text-slate-400">E-mail oficjalny</div>
+                                    <a href="mailto:szkoly-prywatne@wp.pl" class="text-base font-bold text-slate-900 dark:text-white hover:text-brand-600 transition-colors">
+                                        szkoly-prywatne@wp.pl
+                                    </a>
+                                    <div class="text-xs text-slate-500">Napisz wiadomość e-mail</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Quick Message Form (7 cols) -->
+                    <div class="lg:col-span-7 bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Szybka Wiadomość do Sekretariatu</h3>
+                        <p class="text-xs text-slate-500 mb-6">Masz pytanie dotyczące szkoły lub rekrutacji? Napisz do nas!</p>
+
+                        <form id="contactQuickForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">Imię i Nazwisko</label>
+                                    <input type="text" required placeholder="Jan Kowalski" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">Telefon / Email</label>
+                                    <input type="text" required placeholder="np. 600 000 000 lub jan@wp.pl" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">Treść wiadomości</label>
+                                <textarea rows="4" required placeholder="Wpisz tutaj swoje pytanie..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-slate-900 text-white dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 font-bold text-sm transition-colors flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Wyślij wiadomość</span>
+                            </button>
+                        </form>
+
+                        <div id="contactSuccessAlert" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 text-emerald-800 dark:text-emerald-200">
+                            Wiadomość została wysłana! Odpowiemy najszybciej jak to możliwe.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 border-t border-slate-800 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">Prywatne Szkoły Niepubliczne</span>
+                    </div>
+                    <p class="text-sm text-slate-400 max-w-sm">
+                        Technikum Niepubliczne w Nowym Sączu. Funkcjonujemy od 1992 roku. Bezpłatna nauka (Czesne 0 zł), zniżka na prawo jazdy 50% i państwowy dyplom technika.
+                    </p>
+                    <div class="text-xs text-slate-500">
+                        © 1992 – 2026 Prywatne Szkoły Niepubliczne w Nowym Sączu. Wszelkie prawa zastrzeżone.
+                    </div>
+                </div>
+
+                <!-- Col 2: Kierunki Kształcenia -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Kierunki Technikum</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#kierunki" onclick="openCourseModal('programista')" class="hover:text-white transition-colors">Technik Programista</a></li>
+                        <li><a href="#kierunki" onclick="openCourseModal('informatyk')" class="hover:text-white transition-colors">Technik Informatyk</a></li>
+                        <li><a href="#kierunki" onclick="openCourseModal('fotografia')" class="hover:text-white transition-colors">Technik Fotografii</a></li>
+                        <li><a href="#kierunki" onclick="openCourseModal('reklama')" class="hover:text-white transition-colors">Technik Reklamy</a></li>
+                        <li><a href="#kierunki" onclick="openCourseModal('ekonomista')" class="hover:text-white transition-colors">Technik Ekonomista</a></li>
+                        <li><a href="#kierunki" onclick="openCourseModal('hotelarstwo')" class="hover:text-white transition-colors">Technik Hotelarstwa</a></li>
+                        <li><a href="#kierunki" onclick="openCourseModal('turystyka')" class="hover:text-white transition-colors">Technik Turystyki</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Nawigacja -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Na skróty</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#glowna" class="hover:text-white transition-colors">Strona Główna</a></li>
+                        <li><a href="#rekrutacja" class="hover:text-white transition-colors">Rekrutacja 2026</a></li>
+                        <li><a href="#aktualnosci" class="hover:text-white transition-colors">Aktualności</a></li>
+                        <li><a href="#o-szkole" class="hover:text-white transition-colors">O Szkole</a></li>
+                        <li><a href="#kontakt" class="hover:text-white transition-colors">Kontakt i Sekretariat</a></li>
+                        <li><button onclick="openModal('modalStandardy')" class="hover:text-white transition-colors text-left">Standardy Ochrony</button></li>
+                        <li><button onclick="openModal('modalEdziennik')" class="hover:text-white transition-colors text-left">Portal e-Dziennika</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Kontakt Info -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Adres Szkoły</h4>
+                    <address class="not-italic text-sm space-y-2 text-slate-400">
+                        <p class="font-semibold text-white">Technikum Niepubliczne</p>
+                        <p>ul. Kochanowskiego 3</p>
+                        <p>33-300 Nowy Sącz</p>
+                        <p class="pt-2">Tel: <a href="tel:+48184443704" class="text-brand-400 hover:underline">018 444 37 04</a></p>
+                        <p>E-mail: <a href="mailto:szkoly-prywatne@wp.pl" class="text-brand-400 hover:underline">szkoly-prywatne@wp.pl</a></p>
+                    </address>
+                </div>
+
+            </div>
+
+            <!-- Bottom Credits -->
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>Oficjalny serwis informacyjny: szkoly-prywatne.pl • Nowy Sącz</p>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mt-4 sm:mt-0 text-brand-400 hover:text-brand-300 flex items-center gap-1">
+                    <span>Do góry strony</span>
+                    <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- MODALE INFORMACYJNE (POPOUT MODALS) -->
+
+    <!-- MODAL: DETAILS KIERUNKU (DYNAMIC) -->
+    <div id="modalCourse" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeModal('modalCourse')" class="absolute top-6 right-6 p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div id="courseModalContent">
+                <!-- Content will be injected dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: E-DZIENNIK -->
+    <div id="modalEdziennik" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl text-center">
+            <button onclick="closeModal('modalEdziennik')" class="absolute top-6 right-6 p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="w-16 h-16 rounded-2xl bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="book-open" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Portal e-Dziennika</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                Zaloguj się do systemu e-Dziennika Prywatnych Szkół Niepublicznych w Nowym Sączu.
+            </p>
+
+            <div class="space-y-3">
+                <button onclick="alert('Przekierowywanie do serwera e-Dziennika PSN...')" class="w-full py-3.5 rounded-xl bg-brand-600 text-white font-bold text-sm hover:bg-brand-700 transition-colors flex items-center justify-center gap-2">
+                    <i data-lucide="user-check" class="w-4 h-4"></i>
+                    <span>Zaloguj się jako Uczeń / Rodzic</span>
+                </button>
+                <button onclick="alert('Przekierowywanie do panelu Nauczyciela...')" class="w-full py-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    Panel Nauczyciela
+                </button>
+            </div>
+            <div class="mt-4 text-xs text-slate-500">
+                W przypadku problemów z hasłem prosimy o kontakt z wychowawcą lub sekretariatem.
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: STANDARDY OCHRONY MAŁOLETNICH -->
+    <div id="modalStandardy" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeModal('modalStandardy')" class="absolute top-6 right-6 p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 flex items-center justify-center">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Standardy Ochrony Małoletnich</h3>
+                    <p class="text-xs text-slate-500">Prywatne Szkoły Niepubliczne w Nowym Sączu</p>
+                </div>
+            </div>
+
+            <div class="prose dark:prose-invert text-sm text-slate-600 dark:text-slate-300 space-y-4">
+                <p>
+                    Zgodnie z wymogami Ustawy z dnia 28 lipca 2023 r. o zmianie ustawy – Kodeks rodzinny i opiekuńczy oraz niektórych innych ustaw (tzw. Ustawa Kamilki), w naszej szkole obowiązują pełne i rygorystyczne <strong>Standardy Ochrony Małoletnich</strong>.
+                </p>
+                <h4 class="font-bold text-slate-900 dark:text-white text-base">Główne zasady bezpiecznych relacji:</h4>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Bezpieczne środowisko wolne od przemocy psychicznej i fizycznej.</li>
+                    <li>Zasady reagowania na sygnały krzywdzenia małoletnich.</li>
+                    <li>Procedury udzielania pomocy psychologiczno-pedagogicznej.</li>
+                    <li>Weryfikacja personelu dydaktycznego i administracyjnego w Rejestrze Sprawców Przestępstw na Tle Seksualnym.</li>
+                </ul>
+                <p>
+                    Dokument jest dostępny w całości do wglądu w Sekretariacie Szkoły przy ul. Kochanowskiego 3 w Nowym Sączu.
+                </p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+                <button onclick="closeModal('modalStandardy')" class="px-6 py-2.5 rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-bold text-sm">
+                    Rozumiem i zamykam
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dark Mode Toggle Logic
+        function toggleDarkMode() {
+            const htmlEl = document.documentElement;
+            if (htmlEl.classList.contains('dark')) {
+                htmlEl.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlEl.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Set initial theme based on localStorage
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Mobile Menu Drawer Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Filter Kierunki Grid
+        function filterKierunki(category) {
+            const cards = document.querySelectorAll('.kierunek-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.add('bg-brand-600', 'text-white');
+                    btn.classList.remove('text-slate-600', 'dark:text-slate-300');
+                } else {
+                    btn.classList.remove('bg-brand-600', 'text-white');
+                    btn.classList.add('text-slate-600', 'dark:text-slate-300');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-cat') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Database of Course Details (Exact descriptions from szkoly-prywatne.pl)
+        const coursesData = {
+            programista: {
+                title: "Technik Programista",
+                code: "Kod zawodu: 351406",
+                badge: "IT & Software",
+                desc: "Dynamiczny rozwój sektora IT oraz rosnące zapotrzebowanie na programistów sprawia, że jest to jeden z najlepiej wynagradzanych zawodów. Rynek pracy wręcz pęka w szwach od ofert IT.",
+                subjects: ["Tworzenie aplikacji internetowych (Frontend & Backend)", "Języki programowania: Python, JavaScript, C#", "Projektowanie i zarządzanie bazami danych SQL", "Programowanie obiektowe oraz mobilne"],
+                career: "Software Developer, Web Developer, Tester oprogramowania, Administrator Baz Danych, Freelancer.",
+                duration: "5 lat (Maturę + Państwowy Dyplom Technika)"
+            },
+            informatyk: {
+                title: "Technik Informatyk",
+                code: "Kod zawodu: 351203",
+                badge: "IT & Hardware",
+                desc: "Najbardziej poszukiwany zawód na rynku pracy. Branża informatyczna to jeden z najszybciej rozwijających się sektorów gospodarczych. Jeśli świat IT to Twoje miejsce na Ziemi, ten kierunek jest dla Ciebie.",
+                subjects: ["Montaż i eksploatacja systemów komputerowych (INF.02)", "Administracja sieciami komputerowymi", "Projektowanie i administrowanie stronami www (INF.03)", "Bezpieczeństwo sieci i systemów operacyjnych"],
+                career: "Administrator sieci, Serwisant sprzętu IT, Specjalista ds. wsparcia technicznego, Webmaster.",
+                duration: "5 lat (Maturę + Państwowy Dyplom Technika)"
+            },
+            fotografia: {
+                title: "Technik Fotografii i Multimediów",
+                code: "Kod zawodu: 343105",
+                badge: "Media & Foto",
+                desc: "Zawód niezwykle poszukiwany w dzisiejszych czasach, w którym tylko nieliczni mogą pochwalić się dyplomem państwowym. Dla osób z twórczą wyobraźnią, kreatywnych i pełnych pomysłów.",
+                subjects: ["Fotografia studyjna i plenerowa", "Cyfrowa obróbka zdjęć (Adobe Photoshop, Lightroom)", "Montaż materiałów wideo i produkcja multimedialna", "Oświetlenie i kompozycja obrazu"],
+                career: "Fotograf profesjonalny, Operator kamery, Montażysta wideo, Grafik w agencji reklamowej.",
+                duration: "5 lat (Maturę + Państwowy Dyplom Technika)"
+            },
+            reklama: {
+                title: "Technik Reklamy",
+                code: "Kod zawodu: 333907",
+                badge: "Marketing & Media",
+                desc: "Zawód dla osób kreatywnych z twórczą wyobraźnią. Jeśli masz dużo pomysłów i pasjonuje Cię świat reklamy, marketingu i mediów – to idealna propozycja dla Ciebie.",
+                subjects: ["Projektowanie kampanii reklamowych", "Grafika komputerowa i copywriting", "Social Media Marketing i PR", "Organizacja sprzedaży usług reklamowych"],
+                career: "Social Media Manager, Content Creator, Copywriter, Specjalista ds. marketingu w agencjach.",
+                duration: "5 lat (Maturę + Państwowy Dyplom Technika)"
+            },
+            ekonomista: {
+                title: "Technik Ekonomista",
+                code: "Kod zawodu: 331403",
+                badge: "Biznes & Finanse",
+                desc: "Specjaliści tego kierunku znajdą zatrudnienie niemal w każdej firmie. Dla osób przedsiębiorczych i komunikatywnych, interesujących się sferą społeczną, ekonomiczną i biznesową.",
+                subjects: ["Prowadzenie dokumentacji księgowej i finansowej", "Rozliczanie podatków i wynagrodzeń", "Analiza ekonomiczna i planowanie biznesowe", "Zarządzanie zasobami ludzkimi"],
+                career: "Księgowy, Doradca finansowy, Pracownik banku, Specjalista ds. kadr i płac, Własna działalność.",
+                duration: "5 lat (Maturę + Państwowy Dyplom Technika)"
+            },
+            hotelarstwo: {
+                title: "Technik Hotelarstwa",
+                code: "Kod zawodu: 422402",
+                badge: "Usługi & Premium",
+                desc: "Bardzo poszukiwany zawód w ciągle rozwijającej się branży hotelarskiej. Obejmuje planowanie pracy zespołu oraz wdrażanie rozwiązań technicznych i organizacyjnych. Idealny dla osób otwartych i komunikatywnych.",
+                subjects: ["Rezerwacja i obsługa gości w recepcji", "Planowanie i organizacja usług gastronomicznych i dodatkowych", "Języki obce w branży hotelarskiej", "Zarządzanie obiektem hotelarskim"],
+                career: "Menadżer obiektu hotelowego, Recepcjonista, Specialist ds. VIP i eventów, Organizator turystyki.",
+                duration: "5 lat (Maturę + Państwowy Dyplom Technika)"
+            },
+            turystyka: {
+                title: "Technik Organizacji Turystyki",
+                code: "Kod zawodu: 422104",
+                badge: "Eventy & Travel",
+                desc: "Bardzo poszukiwany zawód w związku z rosnącym zapotrzebowaniem na usługi turystyczne i imprezy masowe. Organizacja i obsługa eventów, imprez turystycznych, kongresów, konferencji i targów.",
+                subjects: ["Projektowanie programów imprez turystycznych i wycieczek", "Organizacja konferencji, eventów i targów", "Geografia turystyczna i pilotaż wycieczek", "Sprzedaż produktów turystycznych"],
+                career: "Organizator wyjazdów i eventów, Agent turystyczny, Pilot wycieczek, Specjalista ds. marketingu turystycznego.",
+                duration: "5 lat (Maturę + Państwowy Dyplom Technika)"
+            }
+        };
+
+        // Open Modal Handler for Course Details
+        function openCourseModal(courseKey) {
+            const course = coursesData[courseKey];
+            if (!course) return;
+
+            const modalContent = document.getElementById('courseModalContent');
+            modalContent.innerHTML = `
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase mb-3">
+                    ${course.badge}
+                </div>
+                <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white">${course.title}</h3>
+                <div class="text-xs font-semibold text-slate-400 mb-4">${course.code} • ${course.duration}</div>
+
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                    ${course.desc}
+                </p>
+
+                <div class="space-y-4 mb-6">
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Czego się nauczysz?</h4>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                        ${course.subjects.map(sub => `<li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i><span>${sub}</span></li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 mb-6">
+                    <div class="text-xs font-bold uppercase text-slate-400 mb-1">Perspektywy zatrudnienia:</div>
+                    <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">${course.career}</div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center gap-3 pt-2 border-t border-slate-200 dark:border-slate-800">
+                    <a href="#rekrutacja" onclick="selectCourseInForm('${course.title}'); closeModal('modalCourse')" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm text-center transition-colors">
+                        Zapisz się na ten kierunek
+                    </a>
+                    <button onclick="closeModal('modalCourse')" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-sm">
+                        Zamknij
+                    </button>
+                </div>
+            `;
+
+            lucide.createIcons();
+            openModal('modalCourse');
+        }
+
+        // Helper to select course in the online application form
+        function selectCourseInForm(title) {
+            const selectEl = document.getElementById('formKierunek');
+            if (selectEl) {
+                selectEl.value = title;
+            }
+        }
+
+        // Modal Helpers
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // Calculate Points Logic
+        function calculatePoints() {
+            const pol = parseFloat(document.getElementById('calcPol').value) || 0;
+            const mat = parseFloat(document.getElementById('calcMat').value) || 0;
+            const ang = parseFloat(document.getElementById('calcAng').value) || 0;
+
+            const gradePol = parseFloat(document.getElementById('gradePol').value) || 0;
+            const gradeMat = parseFloat(document.getElementById('gradeMat').value) || 0;
+
+            // Exam points: Pol * 0.35 + Mat * 0.35 + Ang * 0.3
+            const examPts = (pol * 0.35) + (mat * 0.35) + (ang * 0.3);
+            
+            // Grades points
+            const total = Math.min(200, Math.round((examPts + gradePol + gradeMat + 30) * 10) / 10);
+
+            document.getElementById('totalPointsDisplay').innerText = total + " pkt";
+        }
+
+        // Forms Handlers
+        function handleRecruitmentSubmit(e) {
+            e.preventDefault();
+            document.getElementById('formSuccessAlert').classList.remove('hidden');
+            e.target.reset();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            document.getElementById('contactSuccessAlert').classList.remove('hidden');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
